@@ -1,0 +1,46 @@
+<ion-view view-title="SAGESP Cadastro">
+    <ion-content>
+        <div class="bar bar-subheader bar-assertive static text-center">
+            <strong class="title">Cadastro</strong>
+        </div>
+        <div class="im-wrapper">
+            <form class="list" name="cadastro" novalidate ng-submit="submit(cadastro.$valid)">
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Email</span>
+                    <input type="email" name="email" ng-model="data.email" placeholder="Email" required>
+                    <span ng-show="cadastro.email.$invalid && !cadastro.email.$pristine" class="assertive help-block">Use um email válido.</span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Nome</span>
+                    <input type="text" ng-model="data.nome" name="nome" placeholder="Nome" ng-minlength="2" ng-maxlength="15" required>
+                    <span ng-show="cadastro.nome.$error.minlength" class="assertive help-block">Nome muito curto (Min. 2).</span>
+                    <span ng-show="cadastro.nome.$error.maxlength" class="assertive help-block">Nome muito longo (Max. 15).</span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Sobrenome</span>
+                    <input type="text" ng-model="data.sobrenome" name="sobrenome" placeholder="Sobrenome" ng-minlength="2" ng-maxlength="15" required>
+                    <span ng-show="cadastro.sobrenome.$error.minlength" class="assertive help-block">Sobrenome muito curto (Min. 2).</span>
+                    <span ng-show="cadastro.sobrenome.$error.maxlength" class="assertive help-block">Sobrenome muito longo (Max. 15).</span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Senha</span>
+                    <input type="password" ng-model="data.senha" name="senha" placeholder="Senha" ng-minlength="4" ng-maxlength="20" required>
+                    <span ng-show="cadastro.senha.$error.minlength" class="assertive help-block">Senha muito curta (Min. 4).</span>
+                    <span ng-show="cadastro.senha.$error.maxlength" class="assertive help-block">Senha muito longa (Max. 20).</span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Confirme a senha</span>
+                    <input type="password" ng-model="data.verify" nx-equal-ex="data.senha" name="verify" placeholder="Confirme a senha" required>
+                    <span ng-show="cadastro.verify.$error.nxEqualEx" class="assertive help-block">Senha não confere!</span>
+                </label>
+                <button class="button button-full  icon-left ion-person-add button-balanced" ng-disabled="cadastro.$invalid">Salvar</button>
+            </form>
+            <!--<div class="card">
+                <div class="item item-text-wrap">
+                    Response: <b ng-bind="response"></b>
+                </div>
+            </div>-->
+            <button class="button button-full icon-left ion-arrow-return-left" ng-click="voltar()">Voltar</button>
+        </div>
+    </ion-content>
+</ion-view>

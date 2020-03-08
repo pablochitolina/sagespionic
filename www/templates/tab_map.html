@@ -1,0 +1,47 @@
+<ion-view view-title="Posição no mapa">
+    <ion-content>
+        <div class="bar bar-subheader bar-assertive static text-center">
+            <strong class="title">Posição no mapa</strong>
+        </div>
+        <div class="im-wrapper">
+
+            <div data-tap-disabled="true">
+                <div id="map" ng-style="{'width':'{{imgSize}}px', 'height':'{{imgSize}}px'}"></div>
+            </div>
+            </br>
+            <div class="card">
+                <div class="item item-text-wrap">
+                    <span ng-show="enderecoReverso === 'nok'" class="assertive help-block">Click no local do problema.</span>
+
+                    <div ng-show="enderecoReverso !== 'nok'">
+
+                        <ion-list class="animate-blinds">
+                            <ion-item nav-clear menu-close class="item-icon-right ">
+                                <strong>Rua: </strong>{{enderecoReversoRua}}
+                                <span ng-show="enderecoReversoRua === 'Não encontrado.'" class="badge badge-energized">Nok</span>
+                                <span ng-show="enderecoReversoRua !== 'Não encontrado.'" class="badge badge-balanced">Ok</span>
+                            </ion-item>
+                            <ion-item nav-clear menu-close class="item-icon-right ">
+                                <strong>Bairro: </strong>{{enderecoReversoBairro}}
+                                <span ng-show="enderecoReversoBairro === 'Não encontrado.'" class="badge badge-energized">Nok</span>
+                                <span ng-show="enderecoReversoBairro !== 'Não encontrado.'" class="badge badge-balanced">Ok</span>
+                            </ion-item>
+                            <ion-item nav-clear menu-close class="item-icon-right">
+                                <strong>Cidade: </strong>{{enderecoReversoCidade}}
+                                <span ng-show="enderecoReversoCidade === 'Não encontrado.'" class="badge badge-energized">Nok</span>
+                                <span ng-show="enderecoReversoCidade !== 'Não encontrado.'" class="badge badge-balanced">Ok</span>
+                            </ion-item>
+                            <ion-item nav-clear menu-close class="item-icon-right">
+                                <strong>Estado: </strong>{{enderecoReversoEstado}}
+                                <span ng-show="enderecoReversoEstado === 'Não encontrado.'" class="badge badge-energized">Nok</span>
+                                <span ng-show="enderecoReversoEstado !== 'Não encontrado.'" class="badge badge-balanced">Ok</span>
+                            </ion-item>
+                        </ion-list>
+                        <span ng-show="enderecoReverso !== 'nok' && (enderecoReversoRua === 'Não encontrado.' || enderecoReversoBairro === 'Não encontrado.' || enderecoReversoCidade === 'Não encontrado.' || enderecoReversoEstado === 'Não encontrado.' ) "
+                            class="energized help-block">Você pode prosseguir mesmo assim.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

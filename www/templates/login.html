@@ -1,0 +1,32 @@
+﻿<ion-view view-title="SAGESP Login">
+    <ion-content>
+        <div class="bar bar-subheader bar-assertive static text-center">
+            <strong class="title">SAGESP Online</strong>
+        </div>
+        <div class="im-wrapper">
+            <form class="list" name="login" novalidate ng-submit="submit(data.email, data.senha, data.check)">
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Email</span>
+                    <input type="email" name="email" ng-model="data.email"  placeholder="Email" required>
+                    <span ng-show="login.email.$invalid && !login.email.$pristine" class="assertive help-block">Use um email válido.</span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Senha</span>
+                    <input type="password" ng-model="data.senha" name="senha" placeholder="Senha" ng-minlength="4" ng-maxlength="20" required>
+                    <span ng-show="login.senha.$error.minlength || login.senha.$error.maxlength" class="assertive help-block">Senha inválida.</span>
+                </label>
+
+                <div class="item item-checkbox">
+                    <label class="checkbox">
+                        <input ng-model="data.check" ng-init='data.check=true' type="checkbox" checked>
+                    </label>Lembrar-me
+                </div>
+
+                <button class="button button-full icon-left ion-log-in button-positive" ng-disabled="login.$invalid">Entrar</button>
+            </form>
+            <button class="button button-full  icon-left ion-person-add button-balanced" ui-sref="cadastrar">Cadastrar</button>
+            <button class="button button-full  button-clear button-dark icon-left ion-help" ng-click="esqueceuSenha(!login.email.$invalid, data.email)">Esqueceu a senha?</button>
+        </div>
+    </ion-content>
+</ion-view>

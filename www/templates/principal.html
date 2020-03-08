@@ -1,0 +1,42 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-assertive">
+            <ion-nav-back-button class="no-text"></ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <button id="fab" ng-click="novo()" class="button button-positive button-fab button-fab-top-right">
+            <i class="icon ion-android-add"></i>
+        </button>
+        <ion-tabs class="tabs-icon-left tabs-color-assertive">
+            <ion-tab title="Em aberto" icon-off="ion-pinpoint" icon-on="ion-pinpoint" href="#/principal/tab_novos">
+                <ion-nav-view name="tab_novos"></ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Atendidos" icon-off="ion-settings" icon-on="ion-settings" href="#/principal/tab_atend">
+                <ion-nav-view name="tab_atend"></ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Resolvidos" icon-off="ion-checkmark" icon-on="ion-checkmark" href="#/principal/tab_resolvidos">
+                <ion-nav-view name="tab_resolvidos"></ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-header-bar class="expanded">
+            <img src="img/logo.png" class="avatar motion spin fade">
+            <div class="menu-bottom ">
+                {{nomeUser}}
+            </div>
+        </ion-header-bar>
+        <ion-content class="stable-bg has-expanded-header">
+            <ion-list>
+                <ion-item nav-clear menu-close ng-click="alterar()">
+                    Alterar cadastro
+                </ion-item>              
+                <ion-item nav-clear menu-close ng-click="sair()">
+                    Sair
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

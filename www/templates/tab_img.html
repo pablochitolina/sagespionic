@@ -1,0 +1,29 @@
+<ion-view view-title="Foto do problema">
+    <ion-content>
+        <div class="bar bar-subheader bar-assertive static text-center">
+            <strong class="title">Foto do problema</strong>
+        </div>
+        <div class="im-wrapper">
+            <img ng-show="imgURI !== undefined" ng-style="{'width':'{{imgSize}}px', 'height':'{{imgSize}}px'}" ng-src="{{imgURI}}">
+            <img ng-show="imgURI === undefined" class="assertive" ng-click="takePicture()">
+            <!--  ng-src="{{screenWidth}}" -->
+            
+            <button class="button button-full button-light icon-left ion-camera" ng-click="takePicture()">Capturar imagem</button>
+            <button class="button button-full button-light icon-left ion-camera" ng-click="selectPicture()">Selecionar imagem</button>
+            </br>
+            
+            <span ng-show="imgURI === undefined" class="assertive help-block">Imagem obrigatória.</span>
+        </div>
+        <form class="list" name="cadastro" novalidate ng-submit="salvar(cadastro.$valid)">
+            <label class="item item-input item-floating-label">
+                    <span class="input-label">Descrição</span>
+                    <textarea rows="5" ng-model="data.descricao" name="descricao" placeholder="Descrição" ng-minlength="10" ng-maxlength="150" required></textarea>
+                    <span ng-show="cadastro.descricao.$error.minlength" class="assertive help-block">Descrição muito curta (Min. 10).</span>
+                    <span ng-show="cadastro.descricao.$error.maxlength" class="assertive help-block">Descrição muito longa (Max. 150).</span>
+                <span ng-show="!cadastro.descricao.$error.minlength && !cadastro.descricao.$error.maxlength && data.descricao" class="balanced help-block">Você esta utilizando {{data.descricao.length}} de 150 caracteres.</span>
+                </label>
+            <!--<button class="button button-full  icon-left ion-plus-circled button-balanced" ng-disabled="cadastro.$invalid || imgURI === undefined">Criar chamado</button>-->
+            <button class="button button-full  icon-left ion-plus-circled button-balanced" ng-disabled="cadastro.$invalid">Criar chamado</button>
+        </form>
+    </ion-content>
+</ion-view>
